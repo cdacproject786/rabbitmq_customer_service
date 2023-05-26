@@ -33,8 +33,8 @@ jobs:
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-          image: arbaaz1602/employeeapp
-          tags: latest
+          image: arbaaz1602/rabbitmq
+          tags: cutomer
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
