@@ -1,0 +1,52 @@
+server:
+  port: 8030
+spring:
+  rabbitmq:
+    host: ec2-3-93-63-37.compute-1.amazonaws.com
+    port: 5672
+    username: guest
+    password: guest
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: deliverfoodinstant@gmail.com
+    password: qugbxqdrjyidmlqp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enabled: true
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:mysql://${DB:localhost}:3306/customer
+    username: root
+    password: 123
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  application:
+    name: CUSTOMER-SERVICE
+
+rabbitmq:
+  queue:
+    name1.1: orders-placed1
+    name1.2: orders-placed2
+    name2: out-for-delivery
+    name3: order-delivered
+  exchange:
+    name: orders
+  binding:
+    key1.1: order-laced-key1
+    key1.2: order-laced-key2
+    key2: out-for-delivery-key
+    key3: order-delivered-key
+mail:
+  sender: deliverfoodinstant@gmail.com
